@@ -18,7 +18,7 @@ const SearchCategories = () => {
             <input
               type="search"
               placeholder="Search for products, brands, or categories..."
-              className="w-full px-3 py-2 outline-none bg-transparent"
+              className="w-full px-3 py-2 outline-none bg-transparent text-black"
             />
             <div className="px-4 py-2 bg-blue-600 text-white rounded-md cursor-pointer hover:bg-blue-700">
               Search
@@ -36,7 +36,7 @@ const SearchCategories = () => {
                 <div className="rounded-full bg-blue-100 p-3 mb-2 dark:bg-gray-800">
                   🛍️
                 </div>
-                <span className="text-sm text-white font-medium group-hover:text-blue-600 transition-colors">
+                <span className="text-sm text-black font-medium group-hover:text-blue-600 transition-colors">
                   {category}
                 </span>
               </a>

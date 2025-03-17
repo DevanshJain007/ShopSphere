@@ -3,11 +3,11 @@ import React from 'react'
 
 const FeaturedProducts = ({data}) => {
   return (
-    <section className="w-full py-12 md:py-16 lg:py-20 bg-gray-50 dark:bg-gray-900">
+    <section className="w-full py-12 md:py-16 lg:py-20 bg-gray-900 dark:bg-gray-900">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Featured Products</h2>
+            <h2 className="text-3xl text-white font-bold tracking-tighter md:text-4xl">Featured Products</h2>
             <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
               Handpicked selections from our top vendors
             </p>
@@ -22,12 +22,12 @@ const FeaturedProducts = ({data}) => {
                   <img src={product.image} alt="" className='w-100 h-100 object-cover wrap' />
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold text-white text-lg group-hover:text-blue-600 transition-colors text-wrap object-cover">
+                  <h3 className="font-semibold text-black text-lg group-hover:text-blue-600 transition-colors text-wrap object-cover">
                      {product.title}
                   </h3>
                   <div className="flex items-center justify-between mt-2">
                     <span className="text-gray-500 dark:text-gray-400">Vendor Name</span>
-                    <span className="font-bold text-white">${(19.99 * product.price).toFixed(2)}</span>
+                    <span className="font-bold text-black">${(19.99 * product.price).toFixed(2)}</span>
                   </div>
                 </div>
               </div>

@@ -1,77 +1,79 @@
-import React from 'react'
+import React from 'react';
 
-const ProductsList = ({data}) => {
+const ProductsList = ({ data }) => {
   return (
-    <>
-      <div className='flex bg-[#101828] text-white'>
-        <div className='w-1/3'>
-            filter Section
-            <div>
-                <h2>Categories Filter</h2>
-                <div>
-                    <label htmlFor="electronics">Electronics</label>
-                    <input type="checkbox" name="electronics" id="" />
-                    <label htmlFor="mens">Mens Clothing</label>
-                    <input type="checkbox" name="mens" id="" />
-                    <label htmlFor="Jwelery">Jwelery</label>
-                    <input type="checkbox" name="electronics" id="" />
-                    <label htmlFor="womens">Womens Clothing</label>
-                    <input type="checkbox" name="womens" id="" />
-                </div>
-            </div>
-            <div>
-                <h2>Range Price</h2>
-                <div>
-                    <label htmlFor="price">PriceRange</label>
-                    <input type="range" name="Price Range" id="" />
-                </div>
-            </div>
-            <div>
-                Rating
-                <div>
-                <label htmlFor="zeroOne">0-1</label>
-                <input type="checkbox" name="zeroOne" id="" />
-                <label htmlFor="twoThree">2-3</label>
-                <input type="checkbox" name="twoThree" id="" />
-                <label htmlFor="fourthFive">3-5</label>
-                <input type="checkbox" name="fourthFive" id="" />
-                </div>
-            </div>
+    <div className="flex bg-[#101828] text-white min-h-screen p-6">
+      {/* Sidebar - Filters */}
+      <aside className="w-1/4 bg-[#1A202C] p-6 rounded-lg shadow-lg">
+        <h2 className="text-xl font-bold mb-4">Filters</h2>
+        
+        {/* Category Filters */}
+        <div className="mb-6">
+          <h3 className="text-lg font-semibold mb-2">Categories</h3>
+          <div className="flex flex-col space-y-2">
+            {["Electronics", "Men's Clothing", "Jewelry", "Women's Clothing"].map((category, index) => (
+              <label key={index} className="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" className="accent-blue-500" />
+                {category}
+              </label>
+            ))}
+          </div>
         </div>
-        <div className='w-2/3'>
-            Products Section
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8">
-          {data.map((product,index) => (
-            <a key={index} href={`/products/`} className="group">
-              <div className="overflow-hidden rounded-lg border bg-white transition-colors hover:border-blue-600 dark:bg-gray-950 dark:border-gray-800 dark:hover:border-blue-600">
+
+        {/* Price Range Filter */}
+        <div className="mb-6">
+          <h3 className="text-lg font-semibold mb-2">Price Range</h3>
+          <input type="range" className="w-full accent-blue-500" />
+        </div>
+
+        {/* Rating Filter */}
+        <div>
+          <h3 className="text-lg font-semibold mb-2">Rating</h3>
+          <div className="flex flex-col space-y-2">
+            {["0-1", "2-3", "3-5"].map((range, index) => (
+              <label key={index} className="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" className="accent-blue-500" />
+                {range}
+              </label>
+            ))}
+          </div>
+        </div>
+      </aside>
+
+      {/* Products Section */}
+      <section className="w-3/4 p-6">
+        <h2 className="text-2xl font-bold mb-6">Products</h2>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {data.map((product, index) => (
+            <a key={index} href={`/products/`} className="group block">
+              <div className="overflow-hidden rounded-lg border border-gray-700 bg-[#1F2937] shadow-md transition-transform hover:scale-105">
+                {/* Product Image */}
                 <div className="relative aspect-square flex items-center justify-center bg-gray-200 dark:bg-gray-800">
-                  {/* <span className="text-gray-500 dark:text-gray-400">🖼️ Product {product.title}</span> */}
-                  <img src={product.image} alt="" className='w-100 h-100 object-cover wrap' />
+                  <img src={product.image} alt={product.title} className="w-full h-full object-cover" />
                 </div>
+
+                {/* Product Details */}
                 <div className="p-4">
-                  <h3 className="font-semibold text-white text-lg group-hover:text-blue-600 transition-colors text-wrap object-cover">
-                     {product.title}
+                  <h3 className="font-semibold text-lg group-hover:text-blue-400 transition">
+                    {product.title}
                   </h3>
-                  <div className="flex items-center justify-between mt-2">
-                    <span className="text-gray-500 dark:text-gray-400">Vendor Name</span>
+                  <div className="flex items-center justify-between mt-2 text-gray-400">
+                    <span>Vendor Name</span>
                     <span className="font-bold text-white">${(19.99 * product.price).toFixed(2)}</span>
                   </div>
-                  <div className='flex flex-col'>
-                  <span className="text-gray-500 dark:text-gray-400">{product.rating.rate}</span>
-                  <span className="text-gray-500 dark:text-gray-400">{product.description}</span>
-
+                  <div className="mt-2 text-gray-300">
+                    <span>⭐ {product.rating.rate}</span>
+                    <p className="text-sm line-clamp-2">{product.description}</p>
                   </div>
                 </div>
               </div>
             </a>
           ))}
         </div>
-        </div>
-      </div>
-     
+      </section>
+    </div>
+  );
+};
 
-    </>
-  )
-}
-
-export default ProductsList
+export default ProductsList;

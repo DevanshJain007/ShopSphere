@@ -3,7 +3,7 @@ import React from "react";
 import shopshphere from '../assets/shopsphere.png'
 const HeroSection = () => {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-900 dark:to-gray-800">
+    <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-900 dark:to-gray-800">
       <div className="container px-4 md:px-6">
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
           <div className="flex flex-col justify-center space-y-4">
@@ -27,7 +27,7 @@ const HeroSection = () => {
                  
                 {/* </Button> */}
               </a>
-              <a href="/become-vendor">
+              <a href="/BecomeVendor">
                 {/* <Button size="lg" variant="outline"> */}
                 <button type="button" className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                 Become a Vendor

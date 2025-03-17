@@ -1,11 +1,13 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import profpic from '../assets/profpic.jpg'
+import { Link, Route, Routes } from 'react-router-dom'
+import BecomeVendor from './BecomeVendor'
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Products', href: '#', current: false },
-  { name: 'Categories', href: '#', current: false },
-  { name: 'Vendors', href: '#', current: false },
+  { name: 'Dashboard', href: '/', current: true },
+  { name: 'Products', href: '/Products', current: false },
+  { name: 'Categories', href: '/SearchCategories', current: false },
+  { name: 'Vendors', href: '/BecomeVendor', current: false },
   { name: 'About', href: '#', current: false },
 ]
 
@@ -14,7 +16,8 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
-  return (
+  return (<>  
+   
     <Disclosure as="nav" className="bg-gray-800">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
@@ -105,12 +108,17 @@ export default function Navbar() {
                   </a>
                 </MenuItem>
                 <MenuItem>
-                  <a
+                <Link to="/BecomeVendor"
+                    className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
+                  >
+                    Become a Vendor
+                </Link>
+                  {/* <a
                     href="http://localhost:5173/BecomeVendor"
                     className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
                   >
                     Become a Vendor
-                  </a>
+                  </a> */}
                 </MenuItem>
               </MenuItems>
             </Menu>
@@ -137,5 +145,7 @@ export default function Navbar() {
         </div>
       </DisclosurePanel>
     </Disclosure>
+    </>
+
   )
 }

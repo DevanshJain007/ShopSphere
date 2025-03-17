@@ -1,181 +1,87 @@
-import React from 'react'
-import { useState } from 'react';
+import React, { useState } from 'react';
+
 const BecomeVendor = () => {
-    
-    const [page,setPage]=useState(1);
-  return (
-    <>
-    <div className='bg-black text-white border-2'>
-        {
-            (page===1)?(
-                    <Page1/>
-            ):( page===2?(
-                       <Page2/>
-            ):(
-                page===3?(
-                <Page3/>
-                    
-                ):(page===4?(
-                    <Page4/>):(<></>)
-                )
-            ))
-        }
-    
-        <div>
-            {
-                page!==1&&(
-                    <div>
-                <button type="button" onClick={()=>{setPage(page-1)}}>Back</button>
-            </div>
-                )
-               
-            }
-            {
-             page !==4 &&(
-                         <div>
-                <button type="button" onClick={()=>{setPage(page+1)}}>Continue</button>
-            </div>
-                )
-            }
-        </div>
-    </div>
-    </>
-  )
-}
+    const [page, setPage] = useState(1);
 
-const Page1=()=>{
-    return(
-        <>
-        <div>
-            <div>
-                <h2>
-                    Basic Information
-                </h2>
-                <p>Tell us about yourself and your contact Information</p>
+    return (
+        <div className="bg-gray-900 text-white min-h-screen p-6">
+            <div className="text-center py-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-lg">
+                <h1 className="text-5xl font-bold">Become a Vendor</h1>
+                <p className="mt-2 text-lg">Join us and start selling your products online</p>
             </div>
-            <div>
-                <form action="">
-                    <div>
-                        <div>
-                        <label htmlFor="name">First Name</label>
-                            <input type="text" name='name' placeholder='Devansh' />    
-                        </div>
-                         <div>
-                          <label htmlFor="lastname"></label>
-                          <input type="text" placeholder='Jain' name='name' />
-                         </div>
-                    </div>
-                    <div>
-                        <label htmlFor="email">Email Address</label>
-                        <input type="email" />
-                    </div>
-                    <div>
-                    <label htmlFor="phoneno">Phone Number</label>
-                    <input type="PhoneNo." name='phoneno'/>
-                    </div>
-                    <div>
-                    <label htmlFor="password">Create Password</label>
-                    <input type="password" placeholder='CratePassword' />
-                     <label htmlFor="email">Confirm Password</label>
-                    <input type="password" placeholder='Confirmpassword'/>
-                    </div>
-                    <div>
-                        <input type="checkbox" name="tick" id="" /> iafree to the terms of services and privacy policy
-                    </div>
-                    
-                </form>
-            </div>
-        </div>
-        </>
-    )
-}
-const Page2=()=>{
-    return(
-        <>
-        <div>
-            <div>
-                <h2>Business Details</h2>
-                <p>Provide the Details of Your Business</p>
-            </div>
-            <div>
-                <form action="">
-                    <div>
-                        <label htmlFor="storename">Business/Store Name</label>
-                        <input type="text" />
-                    </div>
-                    <div>
-                        <label htmlFor="description">Business Description</label>
-                        <textarea name="description" id="" placeholder='tell about business'>hey</textarea>
-                    </div>
-                    <div>
-                        <div><label htmlFor="type">
-                            Business Type
-                            </label>
-                            <input type="text" />
-                            </div>
-                    </div>
-                    <div>
-                        <label htmlFor="address">Address </label>
-                        <input type="text" name="address" id="" />
-                    </div>
-                    <div>
-                        <label htmlFor="BusinessReg">Business Registeration Number</label>
-                        <input type="text" name="BusinessReg" id="" placeholder='Tax Id/Business Registeration Number' />
-                    </div>
-                </form>
-            </div>
-        </div>
-        </>
-    )
-}
+            
+            <div className="max-w-2xl mx-auto mt-10 bg-gray-800 p-6 rounded-lg shadow-lg">
+                {page === 1 && <Page1 />}
+                {page === 2 && <Page2 />}
+                {page === 3 && <Page3 />}
+                {page === 4 && <Page4 />}
 
-const Page3=()=>{
-    return(
-        <>
-        <div>
-            <div>
-                <h1>Products And Shipping</h1>
-                <p>Tell Us about your products and shipping options</p>
-            </div>
-            <div>
-                <form action="">
-                    <div>
-                        <h4>What types of Products Do You want To sell</h4>
-                        <p>Choose Any Of Four and write it down</p>
-                        <div>
-                            <label htmlFor="typesBusinees">Type Of product You Want To Sell</label>
-                            <input type="text" />
-                        </div>
-                        <div>
-                            <label htmlFor="No.ofProducts">How many products do you want to sell intially??0-10</label>
-                            <input type="number" name="No.ofProducts" id="" placeholder='enter the no.of product 0-10'/>
-                        </div>
-                        <div>
-                            <label htmlFor="returnpolicy">Return Policy</label>
-                            <input type="text" placeholder='Describe your return policy' />
-                        </div>
-                    </div>
-                </form>
+                <div className="flex justify-between mt-6">
+                    {page > 1 && (
+                        <button className="bg-gray-600 px-4 py-2 rounded hover:bg-gray-500" onClick={() => setPage(page - 1)}>
+                            Back
+                        </button>
+                    )}
+                    {page < 4 && (
+                        <button className="bg-blue-600 px-4 py-2 rounded hover:bg-blue-500" onClick={() => setPage(page + 1)}>
+                            Continue
+                        </button>
+                    )}
+                </div>
             </div>
         </div>
-        </>
-    )
-}
-const Page4=()=>{
-    return(
-    <>
+    );
+};
+
+const Page1 = () => (
     <div>
-        <div>
-            <h1>Review And Submit</h1>
-            <p>Review your information before submitting</p>
-        </div>
-        <div>
-            <h2>Basic Information</h2>
-        </div>
-        <div>
-            <button type="button">Submit</button>
-        </div>
+        <h2 className="text-2xl font-semibold">Basic Information</h2>
+        <p className="text-gray-400">Tell us about yourself and your contact information</p>
+        <form className="mt-4 space-y-4">
+            <div className="flex gap-4">
+                <input type="text" placeholder="First Name" className="w-full p-2 rounded bg-gray-700" />
+                <input type="text" placeholder="Last Name" className="w-full p-2 rounded bg-gray-700" />
+            </div>
+            <input type="email" placeholder="Email Address" className="w-full p-2 rounded bg-gray-700" />
+            <input type="text" placeholder="Phone Number" className="w-full p-2 rounded bg-gray-700" />
+            <input type="password" placeholder="Create Password" className="w-full p-2 rounded bg-gray-700" />
+            <input type="password" placeholder="Confirm Password" className="w-full p-2 rounded bg-gray-700" />
+        </form>
     </div>
-    </>)
-}
-export default BecomeVendor
+);
+
+const Page2 = () => (
+    <div>
+        <h2 className="text-2xl font-semibold">Business Details</h2>
+        <p className="text-gray-400">Provide the details of your business</p>
+        <form className="mt-4 space-y-4">
+            <input type="text" placeholder="Business/Store Name" className="w-full p-2 rounded bg-gray-700" />
+            <textarea placeholder="Business Description" className="w-full p-2 rounded bg-gray-700"></textarea>
+            <input type="text" placeholder="Business Type" className="w-full p-2 rounded bg-gray-700" />
+            <input type="text" placeholder="Address" className="w-full p-2 rounded bg-gray-700" />
+            <input type="text" placeholder="Tax ID/Business Registration Number" className="w-full p-2 rounded bg-gray-700" />
+        </form>
+    </div>
+);
+
+const Page3 = () => (
+    <div>
+        <h2 className="text-2xl font-semibold">Products & Shipping</h2>
+        <p className="text-gray-400">Tell us about your products and shipping options</p>
+        <form className="mt-4 space-y-4">
+            <input type="text" placeholder="Type of Products You Want to Sell" className="w-full p-2 rounded bg-gray-700" />
+            <input type="number" placeholder="How many products do you want to sell initially?" className="w-full p-2 rounded bg-gray-700" />
+            <input type="text" placeholder="Describe your return policy" className="w-full p-2 rounded bg-gray-700" />
+        </form>
+    </div>
+);
+
+const Page4 = () => (
+    <div>
+        <h2 className="text-2xl font-semibold">Review & Submit</h2>
+        <p className="text-gray-400">Review your information before submitting</p>
+        <button className="bg-green-600 px-4 py-2 rounded hover:bg-green-500 mt-4">Submit</button>
+    </div>
+);
+
+export default BecomeVendor;

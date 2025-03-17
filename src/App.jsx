@@ -7,6 +7,7 @@ import FeaturedProducts from './components/FeaturedProducts';
 import Footer from './components/Footer';
 import BecomeVendor from './components/BecomeVendor';
 import ProductsList from './components/ProductsList';
+import { Route, Router, Routes } from 'react-router-dom';
 
 function App() {
   const [data,setData]=useState([])
@@ -32,13 +33,23 @@ function App() {
 
   return (
     <>
+    
       <Navbar />
-      <HeroSection />
+      <Routes>
+      <Route path='/' element={<HeroSection/>}/>
+
+      <Route path='/BecomeVendor' element={<BecomeVendor/>}/>
+      <Route path='/Products' element={<ProductsList data={data}/>}/>
+      <Route path='/SearchCategories' element={<SearchCategories/>}/>
+    </Routes>
+   
+
+      {/* 
       <SearchCategories />
       <FeaturedProducts data={data}/>
       <Footer/>
       <BecomeVendor/>
-      <ProductsList data={data}/>
+      <ProductsList data={data}/> */}
     </>
   );
 }
