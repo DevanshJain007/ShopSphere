@@ -3,6 +3,8 @@ import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import profpic from '../assets/profpic.jpg'
 import { Link, Route, Routes } from 'react-router-dom'
 import BecomeVendor from './BecomeVendor'
+import { useContext } from 'react'
+import VendorContext from '../context/vendor-context/vendorcontext'
 const navigation = [
   { name: 'Dashboard', href: '/', current: true },
   { name: 'Products', href: '/Products', current: false },
@@ -105,6 +107,14 @@ export default function Navbar() {
                     className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
                   >
                     My Orders
+                  </a>
+                </MenuItem>
+                <MenuItem>
+                  <a
+                    href="/Admin"
+                    className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
+                  >
+                    Admin
                   </a>
                 </MenuItem>
                 <MenuItem>

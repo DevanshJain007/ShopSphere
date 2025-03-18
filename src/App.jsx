@@ -8,6 +8,8 @@ import Footer from './components/Footer';
 import BecomeVendor from './components/BecomeVendor';
 import ProductsList from './components/ProductsList';
 import { Route, Router, Routes } from 'react-router-dom';
+import AdminPage from './components/AdminPage';
+import VendorContextProvider from './context/vendor-context/VendorContextProvider';
 
 function App() {
   const [data,setData]=useState([])
@@ -32,8 +34,9 @@ function App() {
   }, []);
 
   return (
-    <>
     
+    <VendorContextProvider>
+
       <Navbar />
       <Routes>
       <Route path='/' element={<HeroSection/>}/>
@@ -41,6 +44,7 @@ function App() {
       <Route path='/BecomeVendor' element={<BecomeVendor/>}/>
       <Route path='/Products' element={<ProductsList data={data}/>}/>
       <Route path='/SearchCategories' element={<SearchCategories/>}/>
+      <Route path='/Admin' element={<AdminPage/>}/>
     </Routes>
    
 
@@ -50,7 +54,7 @@ function App() {
       <Footer/>
       <BecomeVendor/>
       <ProductsList data={data}/> */}
-    </>
+      </VendorContextProvider>
   );
 }
 
